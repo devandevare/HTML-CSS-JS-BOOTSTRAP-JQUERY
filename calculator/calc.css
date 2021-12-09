@@ -1,0 +1,22 @@
+.title {
+    color: #bf324c;
+    margin-left: 15%;
+  }
+  
+  body {
+    margin: 150px;
+  }
+  .input-box {
+    width: 500px;
+    height: 25px;
+  }
+  
+  .button-1 {
+    width: 80px;
+    height: 30px;
+    margin: 20px;
+  }
+  
+  .button-box {
+    margin-left: 10px;
+  }
