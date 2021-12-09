@@ -1,0 +1,71 @@
+body{
+    background-color: rgb(57 74 110);
+    transform: translate(0px,0px);
+}
+table{
+    background-color: rgb(242, 245, 255);
+    margin: 0 auto;
+    
+}
+.lbl{
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    width: 90%;
+}
+.button{
+    margin: 10px auto 20px auto;
+    display: block;
+    background-color: green;
+    width: 300px;
+    height: 50px;
+    font-size: larger;
+    font-family: emoji;
+    color: rgb(255, 255, 255);
+}
+.text{
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+.lbl1{
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+}
+h1{
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    font-family: 'Righteous', cursive;
+    font-size: 29px;
+}
+
+h1:before {
+    content: "";
+    width: 174px;
+    height: 2px;
+    display: block;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+}
+
+h1:after {
+    content: "";
+    width: 175px;
+    height: 2px;
+    display: block;
+    background: black;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+}
+.singin{
+    color: #ffffff;
+}
+.creatacc{
+    color: rgb(41, 41, 41);
+}
