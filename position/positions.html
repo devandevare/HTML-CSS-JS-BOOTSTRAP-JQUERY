@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position</title>
+  <style>
+    .container {
+      border: 1px solid brown;
+    }
+
+    .box {
+      display: inline-block;
+      border: 2px solid slateblue;
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-left: 20%;
+    }
+
+    div {
+      margin-top: 100px;
+    }
+
+    #position-relative {
+      position: relative;
+      top: 160px;
+    }
+
+    #position-absolute {
+      position: absolute;
+      top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Relative</h2>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box" id="position-relative">
+      <p>3 relative</p>
+    </div>
+    <div class="box">4</div>
+  </div>
+  <div class="container">
+    <h2>Absolute</h2>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box" id="position-absolute">
+      <p>3 absolute</p>
+    </div>
+    <div class="box">4</div>
+  </div>
+</body>
+
+</html>

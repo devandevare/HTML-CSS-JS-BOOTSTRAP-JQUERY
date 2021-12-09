@@ -1,0 +1,44 @@
+.parent {
+  border: 2px solid #0074d9;
+  color: #0074d9;
+  padding: 20px;
+}
+
+.absolute-child {
+  border: 1px dotted #000;
+  background-color: #eee;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+}
+
+.relative-child {
+  border: 1px dotted #000;
+  background-color: #eee;
+  padding: 20px;
+  color: #000;
+  position: relative;
+  top: 200px;
+}
+
+.fixed-child {
+  background-color: blueviolet;
+  opacity: .85;
+  padding: 20px;
+  color: rgba(255,255,255,.9);
+  position: fixed;
+  bottom: 200px;
+  left: 0;
+  right: 0;
+}
+
+.sticky-child {
+  background-color: blueviolet;
+  opacity: .85;
+  padding: 20px;
+  color: rgba(255,255,255,.9);
+  position: sticky;
+  top: 0;
+}
