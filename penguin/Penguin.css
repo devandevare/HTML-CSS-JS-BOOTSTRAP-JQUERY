@@ -1,0 +1,146 @@
+body{
+    background-color: gray;
+}
+.penguin{
+    background-color: white;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    top: 100px;
+    left: 30%;
+}
+.penguin *{
+    position: absolute;
+}
+.penguin-top{
+    background-color: black;
+    height: 45%;
+    width: 45%;
+    top: 10%;
+    left: 25%;
+    border-radius: 70% 70% 60% 60%;
+}
+.penguin-bottom{
+    background-color: black;
+    height: 45%;
+    width: 53%;
+    border-radius: 70% 70% 100% 100%;
+    top: 40%;
+    left: 22%;
+}
+
+.right-cheek{
+    height: 70%;
+    width: 60%;
+    border-radius: 70% 70% 60% 60%;
+    top: 15%;
+    left: 35%;
+    background-color: white;
+}
+
+.left-cheek{
+    height: 70%;
+    width: 60%;
+    border-radius: 70% 70% 60% 60%;
+    top: 15%;
+    left: 7%;
+    background-color: white;
+}
+.belly{
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    border-radius: 120% 120% 100% 100%;
+    top: 60%;
+    left: 5.5%;
+}
+.left-eye{
+    background-color: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+    top: 41%;
+    left: 60%;
+}
+.right-eye{
+    background-color: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+    top: 41%;
+    right: 60%;
+}
+.sparkle{
+    background-color: white;
+    height: 35%;
+    width: 25%;
+    top: 25%;
+    left: 15%;
+    border-radius: 50%;
+}
+.top-break{
+    background-color: orange;
+    height: 10%;
+    width: 20%;
+    border-radius: 50%;
+    top: 60%;
+    left: 40%;
+}
+.bottom-break{
+    background-color: orange;
+    height: 10%;
+    width: 16%;
+    border-radius: 50%;
+    top: 66%;
+    left: 42%;
+}
+.right-blush{
+    background-color: pink;
+    height: 10%;
+    width: 17%;
+    border-radius: 50%;
+    top: 65%;
+    right: 17%;
+}
+.left-blush{
+    background-color: pink;
+    height: 10%;
+    width: 17%;
+    border-radius: 50%;
+    top: 65%;
+    left: 17%;
+}
+.right-leg{
+    background-color: orange;
+    height: 15%;
+    width: 20%;
+    border-radius: 50%;
+    top: 95%;
+    left: 60%;
+    transform: rotate(24deg);
+}
+.left-leg{
+    background-color: orange;
+    height: 15%;
+    width: 20%;
+    border-radius: 50%;
+    top: 95%;
+    left: 25%;
+    transform: rotate(-24deg);
+}
+.right-hand{
+    background-color: black;
+    height: 60%;
+    width: 30%;
+    border-radius: 30% 30% 120% 30%;
+    left: -7%;
+    transform: rotate(45deg);
+}
+.left-hand{
+    background-color: black;
+    height: 60%;
+    width: 30%;
+    border-radius: 30% 30% 30% 120%;
+    left: 75%;
+    transform: rotate(-45deg);
+}
