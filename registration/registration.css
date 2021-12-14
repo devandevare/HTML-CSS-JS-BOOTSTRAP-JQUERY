@@ -86,3 +86,10 @@ body {
 .signup-form form a:hover {
 	text-decoration: underline;
 }  
+
+.bottom1{
+	margin-left: 611px;
+	padding: 18px;
+	border: black;
+	
+}
