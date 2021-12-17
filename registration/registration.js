@@ -22,8 +22,24 @@ function Submit() {
     }
     document.getElementById("gen").innerHTML = gender
 
-    allUsers.push({ "firstName": fname, "lastName": lname, "email": email, "password": pass, "gen": gender, "subjects": dropdownMenuButton });
-    let str = '';
+    if (fname == "") {
+        // alert("error")
+        $("#fnamelabel").html("*Enter a name")
+    }
+    else if (lname == "") {
+        // alert("error")
+        $("#lnamelabel").html("*Enter a name")
+    }
+    else if (email == "") {
+        // alert("error")
+        $("#email_label").html("*Enter a name")
+    }
+    else {
+
+        allUsers.push({ "firstName": fname, "lastName": lname, "email": email, "password": pass, "gen": gender, "subjects": dropdownMenuButton });
+        let str = '';
+    }
+
 
 
     Showdata()
@@ -42,7 +58,7 @@ function Submit() {
 }
 function Showdata() {
     console.log(allUsers)
-    alert("Record Inserted")
+    // alert("Record Inserted")
     for (let index = allUsers.length - 1; index < allUsers.length; index++) {
         fname = allUsers[index].firstName;
         lname = allUsers[index].lastName;
@@ -97,6 +113,7 @@ function deleterecord(deleteIndex) {
 
     }
 
+    alert("Row deleted")
 
 }
 
@@ -110,12 +127,12 @@ function editrecord(row) {
     // document.getElementById("dropdownMenuButton").value = allUsers[row].subjects;
 
     document.getElementById("register_div").innerHTML = ""
-    let updaterg = "<button type='button' onclick='register(" + row + ")' class='btn btn-success btn-lg btn-block'>Update Now</button>"
+    let updaterg = "<button type='button' onclick='update(" + row + ")' class='btn btn-success btn-lg btn-block'>Update Now</button>"
     document.getElementById("register_div").innerHTML = updaterg
 }
 
 
-function register(Row_index) {
+function update(Row_index) {
     // Submit();
 
     allUsers[Row_index].firstName = document.getElementById("fname").value;;
@@ -130,7 +147,7 @@ function register(Row_index) {
     document.getElementById("register_div").innerHTML = ""
     let register = "<button type='button' onclick='Submit()' class='btn btn-success btn-lg btn-block'>Register Now</button>"
     document.getElementById("register_div").innerHTML = register
-
+    alert("Row Updated")
     display_records()
 }
 
