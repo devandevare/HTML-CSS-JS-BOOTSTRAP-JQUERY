@@ -24,25 +24,11 @@ function Submit() {
 
     allUsers.push({ "firstName": fname, "lastName": lname, "email": email, "password": pass, "gen": gender, "subjects": dropdownMenuButton });
     let str = '';
-    
 
-    console.log(allUsers)
-    for (let index = allUsers.length-1 ; index < allUsers.length; index++) {
-        fname = allUsers[index].firstName;
-        lname = allUsers[index].lastName;
-        email = allUsers[index].email;
-        pass = allUsers[index].password;
-        gender = allUsers[index].gen;
-        dropdownMenuButton = allUsers[index].subjects;
-        // num = num + 1;
-        // html = '<tr><td>'+firstname+'</td></tr>';
-        let str = "<tr><td>" + fname + "</td><td>" + lname + "</td><td>" + email + "</td><td> *******</td><td>" + gender + "</td><td>" + dropdownMenuButton + "<td><a href='#' onclick='deleterecord(" + index + ")'>Delete</a></td></tr>"
-        $("#tbodys").append(str);
-        str = '';
-        
-    }
 
-    
+    Showdata()
+    Clear()
+
 
 
 
@@ -54,9 +40,27 @@ function Submit() {
 
     // document.getElementById("tbodys").innerHTML = str;
 }
+function Showdata() {
+    console.log(allUsers)
+    alert("Record Inserted")
+    for (let index = allUsers.length - 1; index < allUsers.length; index++) {
+        fname = allUsers[index].firstName;
+        lname = allUsers[index].lastName;
+        email = allUsers[index].email;
+        pass = allUsers[index].password;
+        gender = allUsers[index].gen;
+        dropdownMenuButton = allUsers[index].subjects;
+        // num = num + 1;
+        // html = '<tr><td>'+firstname+'</td></tr>';
+        let str = "<tr><td>" + fname + "</td><td>" + lname + "</td><td>" + email + "</td><td> *******</td><td>" + gender + "</td><td>" + dropdownMenuButton + "<td><a href='#' onclick='deleterecord(" + index + ")'>Delete</a></td><td><a href='#' onclick='editrecord(" + index + ")'>Edit</a></td></tr>"
+        $("#tbodys").append(str);
+        str = '';
+
+    }
+
+}
 
 
-    
 
 function Clear() {
 
@@ -78,7 +82,7 @@ function Clear() {
 
 function deleterecord(deleteIndex) {
     $("#tbodys").html("");
-    allUsers.splice(deleteIndex, deleteIndex)
+    allUsers.splice(deleteIndex, 1)
     for (let index = 0; index < allUsers.length; index++) {
         fname = allUsers[index].firstName;
         lname = allUsers[index].lastName;
@@ -86,12 +90,41 @@ function deleterecord(deleteIndex) {
         pass = allUsers[index].password;
         gender = allUsers[index].gen;
         dropdownMenuButton = allUsers[index].subjects;
-       
-        let str = "<tr><td>" + fname + "</td><td>" + lname + "</td><td>" + email + "</td><td> *******</td><td>" + gender + "</td><td>" + dropdownMenuButton + "<td><a href='#' onclick='deleterecord(" + index + ")'>Delete</a></td></tr>"
+
+        let str = "<tr><td>" + fname + "</td><td>" + lname + "</td><td>" + email + "</td><td> *******</td><td>" + gender + "</td><td>" + dropdownMenuButton + "<td><a href='#' onclick='deleterecord(" + index + ")'>Delete</a></td><td><a href='#' onclick='editrecord(" + index + ")'>Edit</a></td></tr>"
         $("#tbodys").append(str);
         str = '';
 
     }
 
-    
+
 }
+
+function editrecord(row) {
+
+    document.getElementById("fname").value = allUsers[row].firstName
+    document.getElementById("lname").value = lname = allUsers[row].lastName;
+    document.getElementById("email").value = email = allUsers[row].email;
+    document.getElementById("pass").value = pass = allUsers[row].password;
+    // document.getElementById("flexRadioDefault").value = gender = allUsers[row].gen;
+    // document.getElementById("dropdownMenuButton").value = allUsers[row].subjects;
+
+    document.getElementById("register").innerHTML = ""
+    let updaterg = "<button type='button' onclick='register()' class='btn btn-success btn-lg btn-block'>Update Now</button>"
+    document.getElementById("register").innerHTML = updaterg
+}
+
+
+function register() {
+    Submit();
+     document.getElementById("register").innerHTML = ""
+    let register="<button type='button' onclick='Submit()' class='btn btn-success btn-lg btn-block'>Register Now</button>"
+    document.getElementById("register").innerHTML = register
+}
+
+
+
+
+
+
+
