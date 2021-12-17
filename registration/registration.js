@@ -109,17 +109,49 @@ function editrecord(row) {
     // document.getElementById("flexRadioDefault").value = gender = allUsers[row].gen;
     // document.getElementById("dropdownMenuButton").value = allUsers[row].subjects;
 
-    document.getElementById("register").innerHTML = ""
-    let updaterg = "<button type='button' onclick='register()' class='btn btn-success btn-lg btn-block'>Update Now</button>"
-    document.getElementById("register").innerHTML = updaterg
+    document.getElementById("register_div").innerHTML = ""
+    let updaterg = "<button type='button' onclick='register(" + row + ")' class='btn btn-success btn-lg btn-block'>Update Now</button>"
+    document.getElementById("register_div").innerHTML = updaterg
 }
 
 
-function register() {
-    Submit();
-     document.getElementById("register").innerHTML = ""
-    let register="<button type='button' onclick='Submit()' class='btn btn-success btn-lg btn-block'>Register Now</button>"
-    document.getElementById("register").innerHTML = register
+function register(Row_index) {
+    // Submit();
+
+    allUsers[Row_index].firstName = document.getElementById("fname").value;;
+    allUsers[Row_index].lastName = document.getElementById("lname").value;
+    allUsers[Row_index].email = document.getElementById("email").value;
+    allUsers[Row_index].password = document.getElementById("pass").value;
+    // allUsers[row].gen = document.getElementById("flexRadioDefault").value;
+    // allUsers[row].subjects = document.getElementById("dropdownMenuButton").value;
+
+
+    console.log("After Update", allUsers)
+    document.getElementById("register_div").innerHTML = ""
+    let register = "<button type='button' onclick='Submit()' class='btn btn-success btn-lg btn-block'>Register Now</button>"
+    document.getElementById("register_div").innerHTML = register
+
+    display_records()
+}
+
+function display_records() {
+
+    $("#tbodys").html("");
+    for (let index = 0; index < allUsers.length; index++) {
+        fname = allUsers[index].firstName;
+        lname = allUsers[index].lastName;
+        email = allUsers[index].email;
+        pass = allUsers[index].password;
+        gender = allUsers[index].gen;
+        dropdownMenuButton = allUsers[index].subjects;
+
+        let str = "<tr><td>" + fname + "</td><td>" + lname + "</td><td>" + email + "</td><td> *******</td><td>" + gender + "</td><td>" + dropdownMenuButton + "<td><a href='#' onclick='deleterecord(" + index + ")'>Delete</a></td><td><a href='#' onclick='editrecord(" + index + ")'>Edit</a></td></tr>"
+        $("#tbodys").append(str);
+        str = '';
+
+    }
+    Clear()
+
 }
 
 
