@@ -1,7 +1,13 @@
 let allUsers = [];
+let valfirstname = false;
 
 function Submit() {
+
     let fname, lname, email, pass, dropdownMenuButton, flexRadioDefault
+    let pass1 = document.getElementById("pass").value
+    let pass2 = document.getElementById("cpass").value
+
+
 
     fname = document.getElementById("name1").innerHTML = document.getElementById("fname").value;
     lname = document.getElementById("name2").innerHTML = document.getElementById("lname").value;
@@ -24,7 +30,10 @@ function Submit() {
 
     if (fname == "") {
         // alert("error")
-        $("#fnamelabel").html("*Enter a name")
+
+        $("#fnamelabel").removeClass("d-none");
+
+
     }
     else if (lname == "") {
         // alert("error")
@@ -32,9 +41,15 @@ function Submit() {
     }
     else if (email == "") {
         // alert("error")
-        $("#email_label").html("*Enter a name")
+        $("#email_label").html("*Enter a email")
+
+    }
+    else if (pass1 !== pass2) {
+        // alert("error")
+        $("#cnf_pass").html("*Password does not match")
     }
     else {
+        $("#fnamelabel").addClass("d-none");
 
         allUsers.push({ "firstName": fname, "lastName": lname, "email": email, "password": pass, "gen": gender, "subjects": dropdownMenuButton });
         let str = '';
@@ -56,6 +71,35 @@ function Submit() {
 
     // document.getElementById("tbodys").innerHTML = str;
 }
+
+function fnameBlur() {
+
+    const fname = $("#fname").val();
+
+    if (fname === "") {
+        $("#fnamelabel").removeClass("d-none");
+    }
+    else {
+        $("#fnamelabel").addClass("d-none");
+    }
+
+
+}
+
+function lnameBlur() {
+
+    const lname = $("#lname").val();
+
+    if (lname === "") {
+        $("#lnamelabel").removeClass("d-none");
+    }
+    else {
+        $("#lnamelabel").addClass("d-none");
+    }
+
+
+}
+
 function Showdata() {
     console.log(allUsers)
     // alert("Record Inserted")
@@ -68,6 +112,7 @@ function Showdata() {
         dropdownMenuButton = allUsers[index].subjects;
         // num = num + 1;
         // html = '<tr><td>'+firstname+'</td></tr>';
+
         let str = "<tr><td>" + fname + "</td><td>" + lname + "</td><td>" + email + "</td><td> *******</td><td>" + gender + "</td><td>" + dropdownMenuButton + "<td><a href='#' onclick='deleterecord(" + index + ")'>Delete</a></td><td><a href='#' onclick='editrecord(" + index + ")'>Edit</a></td></tr>"
         $("#tbodys").append(str);
         str = '';
@@ -76,9 +121,78 @@ function Showdata() {
 
 }
 
+function pass1blur() {
+    let pass1 = document.getElementById("pass").value
+    if (pass1 === "") {
+        $("#pass1").removeClass("d-none");
+    }
+    else {
+        $("#pass1").addClass("d-none");
+    }
+    if (pass1.length <= 8) {
+        $("#pass1").removeClass("d-none");
+    }
+    else {
+        $("#pass1").addClass("d-none");
+    }
+
+
+
+
+}
+
+function pass2blur() {
+
+    let pass1 = document.getElementById("pass").value
+    let pass2 = document.getElementById("cpass").value
+
+
+    if (pass1 !== pass2) {
+        $("#cnf_pass").removeClass("d-none");
+    }
+    else {
+        $("#cnf_pass").addClass("d-none");
+    }
+
+
+}
+
+
+
+
+function ValidateEmail() {
+    let mail_text = document.getElementById("email").value
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (email === "") {
+        $("#email_label").removeClass("d-none");
+    }
+    else {
+        $("#email_label").addClass("d-none");
+    }
+
+    if (mail_text.match(mailformat)) {
+        // alert("Valid email address!");
+        $("#email_label").html("")
+        document.getElementById("register").disabled = false;
+        $("#email_label").removeClass("d-none");
+        // document.form1.text1.focus();
+        // return true;
+    }
+    else {
+        // alert("You have entered an invalid email address!");
+        $("#email_label").html("*Enter a valid Email")
+        document.getElementById("register").disabled = true;
+        $("#email_label").removeClass("d-none");
+        // document.form1.text1.focus();
+        // return false;
+    }
+}
+
 
 
 function Clear() {
+
 
     document.getElementById("name1").innerHTML = ""
     document.getElementById("name2").innerHTML = ""
@@ -92,8 +206,9 @@ function Clear() {
     document.getElementById("email").value = ""
     document.getElementById("pass").value = ""
     document.getElementById("cpass").value = ""
-    document.getElementById("flexRadioDefault").value = ""
+    document.getElementById("flexRadioDefault").checked = false;
     document.getElementById("dropdownMenuButton").value = ""
+    $("#tbodys").html("");
 }
 
 function deleterecord(deleteIndex) {

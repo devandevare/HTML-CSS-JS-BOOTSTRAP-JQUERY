@@ -27,31 +27,38 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col"><input type="text" id="fname" class="form-control" name="first_name"
-                            placeholder="First Name" required="required">
+                            placeholder="First Name" onblur="fnameBlur();">
                         <div>
-                            <label id="fnamelabel" for="fname" class="text-danger"></label>
-                        </div></div>
+                            <label id="fnamelabel" for="fname" class="text-danger d-none">Please enter first
+                                name</label>
+                        </div>
+                    </div>
                     <div class="col"><input type="text" id="lname" class="form-control" name="last_name"
-                            placeholder="Last Name" required="required">
+                            placeholder="Last Name" onblur="lnameBlur();">
                         <div>
-                            <label for="lname" id="lnamelabel" class="text-danger" ></label>
-                        </div></div>
+                            <label for="lname" id="lnamelabel" class="text-danger d-none">Please enter last name</label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
-                <input type="email" id="email" class="form-control" name="email" placeholder="Email"
-                    required="required">
-                    <div>
-                        <label for="email" id="email_label" class="text-danger"></label>
-                    </div>
+                <input type="email" id="email" class="form-control none" name="email" placeholder="Email"
+                    onblur="ValidateEmail();">
+                <div>
+                    <label for="email" id="email_label" class="text-danger d-none">*Enter a valid Email</label>
+                </div>
             </div>
             <div class="form-group">
                 <input type="password" id="pass" class="form-control" name="password" placeholder="Password"
-                    required="required">
+                    onblur="pass1blur();">
+                <div>
+                    <label for="password" id="pass1" class="text-danger d-none">enter a valid password</label>
+                </div>
             </div>
             <div class="form-group">
                 <input type="password" id="cpass" class="form-control" name="confirm_password"
-                    placeholder="Confirm Password" required="required">
+                    placeholder="Confirm Password" required="required" onblur="pass2blur();">
+                <label for="confirm_password" id="cnf_pass" class="text-danger d-none" >*Password does not match </label>
             </div>
             <div>
                 Gender
@@ -98,7 +105,8 @@
                         href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
             </div>
             <div class="form-group" id="register_div">
-                <button type="button" onclick="Submit()" class="btn btn-success btn-lg btn-block">Register Now</button>
+                <button type="button" onclick="Submit()" class="btn btn-success btn-lg btn-block" id="register">Register
+                    Now</button>
             </div>
             <div>
                 <button type="button" onclick="Clear()" class="btn btn-danger btn-block">Clear All</button>
